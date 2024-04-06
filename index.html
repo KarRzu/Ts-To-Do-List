@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularz</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Zakładając, że SCSS został skompilowany do CSS -->
+  </head>
+  <body>
+    <div class="container my-5">
+      <div class="card form-card">
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-card__input"
+                id="title"
+                placeholder="Title"
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-control form-card__textarea"
+                id="description"
+                rows="3"
+                placeholder="Description"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="task-priority" class="form-label">Priority:</label>
+              <select class="form-control task-list__priority-select" id="task-priority">
+                <option value="low">Low</option>
+                <option value="moderate">Moderate</option>
+                <option value="high">High</option>
+                <option value="critical">Critical</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="task-story-points" class="form-label">Story Points:</label>
+              <select class="form-control" id="task-story-points">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="8">10</option>
+                <option value="13">15</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary form-card__button">
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container my-5">
+      <div class="search-sort-component">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control mr-3" placeholder="Search tasks..." aria-label="Search tasks" id="search-input">
+          <div >
+            <button class="btn btn-outline-secondary mr-3" type="button" id="sort-by-date">Sort by: Date</button>
+            <button class="btn btn-outline-secondary" type="button" id="sort-by-priority">Sort by: Priority</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container my-5">
+      <div class="task-list">
+          <div class="task-list__item card mb-3">
+            <div class="card-body">
+              <input type="text" class="form-control task-list__input mb-2" placeholder="Task Title" readonly>
+              <textarea class="form-control task-list__textarea mb-3" placeholder="Task Description" readonly></textarea>
+              <p class="task-list__status mb-1">Status: <span class="text-muted">In Progress</span></p>
+              <p class="task-list__created mb-1">Created on: <span class="text-muted">2024-04-06 08:45</span></p>
+              <p class="task-list__priority mb-1">Priority: <span class="text-muted">High</span></p>
+              <p class="task-list__story-points mb-3">Story Points: <span class="text-muted">5</span></p>
+              <div class="task-list__icons d-flex justify-content-end">
+                  <button class="btn task-list__icon-btn me-2">
+                      <i data-feather="check-circle"></i>
+                  </button>
+                  <button class="btn task-list__icon-btn">
+                      <i data-feather="trash-2"></i>
+                  </button>
+              </div>
+            </div>
+          </div>
+          
+      </div>
+  </div>
+
+    <script>
+      feather.replace();
+  </script>
+  </body>
+</html>

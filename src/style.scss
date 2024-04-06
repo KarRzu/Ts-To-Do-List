@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.task-list__task {
+  border-radius: 15px;
+  border: 1px solid #ced4da;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .form-control {
+    border-radius: 15px;
+    border: 1px solid #ced4da;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .task-list__input,
+  .task-list__textarea {
+    background-color: #e9ecef;
+    &::placeholder {
+      color: #495057;
+    }
+    &:read-only {
+      background-color: #e9ecef;
+    }
+  }
+
+  .task-list__icons {
+    .task-list__icon-btn {
+      color: #6c757d;
+      &:hover {
+        color: #0056b3;
+      }
+      .fas,
+      .far {
+        font-size: 1.2em;
+      }
+    }
+  }
+
+  .search-sort-component {
+    .input-group {
+      max-width: 600px;
+      margin: auto;
+
+      .btn-outline-secondary {
+        &:hover {
+          background-color: #f8f9fa;
+        }
+      }
+    }
+  }
+}
