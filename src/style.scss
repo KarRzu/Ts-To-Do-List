@@ -1,57 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap';
 
 body {
-  font-family: 'Poppins', sans-serif;
+	font-family: Poppins, sans-serif;
 }
 
-.task-list__task {
-  border-radius: 15px;
-  border: 1px solid #ced4da;
-  background-color: #f8f9fa;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.task-list {
+	&__task {
+		border-radius: 15px;
+		border: 1px solid #ced4da;
+		background-color: #f8f9fa;
+		box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+	}
 
-  .form-control {
-    border-radius: 15px;
-    border: 1px solid #ced4da;
-    &:focus {
-      box-shadow: none;
-    }
-  }
+	&__input,
+	&__textarea {
+		background-color: #e9ecef;
 
-  .task-list__input,
-  .task-list__textarea {
-    background-color: #e9ecef;
-    &::placeholder {
-      color: #495057;
-    }
-    &:read-only {
-      background-color: #e9ecef;
-    }
-  }
+		&::placeholder {
+			color: #495057;
+		}
 
-  .task-list__icons {
-    .task-list__icon-btn {
-      color: #6c757d;
-      &:hover {
-        color: #0056b3;
-      }
-      .fas,
-      .far {
-        font-size: 1.2em;
-      }
-    }
-  }
+		&:read-only {
+			background-color: #e9ecef;
+		}
+	}
 
-  .search-sort-component {
-    .input-group {
-      max-width: 600px;
-      margin: auto;
+	&_icon-btn {
+		color: #6c757d;
 
-      .btn-outline-secondary {
-        &:hover {
-          background-color: #f8f9fa;
-        }
-      }
-    }
-  }
+		&:hover {
+			color: #0056b3;
+		}
+
+		.fas,
+		.far {
+			font-size: 1.2em;
+		}
+	}
+}
+
+.input-group {
+	max-width: 600px;
+	margin: auto;
+}
+
+.btn-outline-secondary {
+	&:hover {
+		background-color: #f8f9fa;
+	}
+}
+
+.form-control {
+	border-radius: 15px;
+	border: 1px solid #ced4da;
+
+	&:focus {
+		box-shadow: none;
+	}
 }

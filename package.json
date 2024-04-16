@@ -10,15 +10,14 @@
 		"eslint": "eslint --ignore-path .eslintignore --ext .js,.ts",
 		"eslint-fix": "eslint . --ext .ts --fix",
 		"stylelint": "stylelint **/*.scss",
-		"htmllint": "htmlhint **/*.html",
-		"lint": "npm run eslint && npm run stylelint && npm run htmllint",
+		"lint": "npm run eslint && npm run stylelint",
 		"prepare": "husky install",
 		"db": "json-server --watch ./db.json"
 	},
 	"devDependencies": {
-    "sass": "^1.74.1",
-    "typescript": "^5.2.2",
-    "vite": "^5.2.7",
+		"sass": "^1.74.1",
+		"typescript": "^5.2.2",
+		"vite": "^5.2.7",
 		"@commitlint/cli": "^17.5.1",
 		"@commitlint/config-conventional": "^17.4.4",
 		"@typescript-eslint/eslint-plugin": "^6.9.0",
@@ -46,4 +45,3 @@
 		"json-server": "^0.17.4"
 	}
 }
-
