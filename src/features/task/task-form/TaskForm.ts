@@ -1,8 +1,8 @@
-import { TaskState, Task, TaskPriority, StoryPoints } from "../types";
+import { TaskState, Task, TaskPriority,TaskStoryPoints} from "../types";
 
 export class TaskForm{
     
-    /*title: HTMLInputElement;
+    title: HTMLInputElement;
     description :HTMLTextAreaElement;
     taskPriority:HTMLSelectElement;
     taskStoryPoints:HTMLSelectElement;
@@ -25,7 +25,7 @@ export class TaskForm{
     const titleValue = this.title.value;
     const descriptionValue = this.description.value;
     const taskPriorityValue: TaskPriority = this.taskPriority.value as TaskPriority;
-    const taskStoryPoints: StoryPoints = this.taskStoryPoints.value as StoryPoints;
+    const taskStoryPoints: TaskStoryPoints = this.taskStoryPoints.value as TaskStoryPoints;
     const timestamp = new Date().toISOString();
     const taskState: TaskState = 'CREATED';
     const newTask: Task = {
@@ -37,5 +37,5 @@ export class TaskForm{
         timestamp: timestamp,
         id: Math.floor(Math.random() * 1000)
     }
-    }*/
+    }
 }
