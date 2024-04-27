@@ -1,16 +1,18 @@
-import { TaskState, Task, TaskPriority, StoryPoints } from "../types";
+import { TaskState, Task, TaskPriority,TaskStoryPoints} from "../types";
 
 export class TaskForm{
     
-    /*title: HTMLInputElement;
+    title: HTMLInputElement;
     description :HTMLTextAreaElement;
     taskPriority:HTMLSelectElement;
     taskStoryPoints:HTMLSelectElement;
     btnCreate: HTMLButtonElement;
 
+    isLoading: boolean = false;
+
     constructor(){
-        this.initialize();
-    
+       this.initialize();
+     
     }
 
     initialize(){
@@ -19,13 +21,16 @@ export class TaskForm{
         this.taskPriority = document.getElementById("task-priority") as HTMLSelectElement;
         this.taskStoryPoints = document.getElementById("task-story-points") as HTMLSelectElement;
         this.btnCreate = document.getElementById("btn-create") as HTMLButtonElement;
+        this.btnCreate.addEventListener("click", (event: MouseEvent) => this.createTask(event));
     }
 
-    createTask(){
+    createTask(event: MouseEvent){
+        event.preventDefault()
+        console.log("helloo");
     const titleValue = this.title.value;
     const descriptionValue = this.description.value;
     const taskPriorityValue: TaskPriority = this.taskPriority.value as TaskPriority;
-    const taskStoryPoints: StoryPoints = this.taskStoryPoints.value as StoryPoints;
+    const taskStoryPoints: TaskStoryPoints = this.taskStoryPoints.value as TaskStoryPoints;
     const timestamp = new Date().toISOString();
     const taskState: TaskState = 'CREATED';
     const newTask: Task = {
@@ -37,5 +42,41 @@ export class TaskForm{
         timestamp: timestamp,
         id: Math.floor(Math.random() * 1000)
     }
-    }*/
+
+    this.postTask(newTask);
+    }
+
+
+    async postTask(newTask: Task){
+        this.isLoading = true;
+        this.btnCreate.disabled = true;
+        try {
+            await fetch("http://localhost:3000/tasks", {
+                method: "POST",
+                headers: {
+                    'Content-type': 'application/json'            
+                },
+                body: JSON.stringify(newTask)
+            })
+            this.resetForm();
+        } catch (error) {
+            console.log(error)
+            
+        }
+        finally{
+            this.isLoading = false;
+            this.btnCreate.disabled = false;
+
+        }
+       
+            
+        
+    }
+
+    resetForm() {
+        this.title.value = ''
+        this.description.value = ''
+        this.taskPriority.value = ''
+        this.taskStoryPoints.value = ''
+    }
 }
