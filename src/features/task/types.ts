@@ -9,6 +9,6 @@ export type Task = {
     id: number;
 }
 
-export type TaskPriority = "LOW" | "MEDIUM" | "HIGH";
+export type TaskPriority = "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
 export type TaskState = "CREATED" | "IN-PROGRESS" | "DONE";
-export type TaskStoryPoints = "1" | "2" | "3" | "5" | "8";
+export type TaskStoryPoints = "1" | "2" | "3" | "5" | "8" | "10" | "15";
