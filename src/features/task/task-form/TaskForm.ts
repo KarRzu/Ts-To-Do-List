@@ -1,4 +1,6 @@
-import { TaskState, Task, TaskPriority,TaskStoryPoints} from "../types";
+import { TaskState, Task, TaskPriority,TaskStoryPoints,} from "../types";
+import { validateTextInput } from '../validation';
+
 
 export class TaskForm{
     
@@ -9,6 +11,8 @@ export class TaskForm{
     btnCreate: HTMLButtonElement;
 
     isLoading: boolean = false;
+    isValidTitle: boolean = false;
+    isValidDescription: boolean = false;
 
     constructor(){
        this.initialize();
@@ -22,11 +26,20 @@ export class TaskForm{
         this.taskStoryPoints = document.getElementById("task-story-points") as HTMLSelectElement;
         this.btnCreate = document.getElementById("btn-create") as HTMLButtonElement;
         this.btnCreate.addEventListener("click", (event: MouseEvent) => this.createTask(event));
+        this.title.addEventListener("blur", () =>{
+           const inputValueTitle: string = this.title.value;
+           this.isValidTitle = validateTextInput(inputValueTitle);
+           console.log(inputValueTitle);
+        })
+
+        this.description.addEventListener("blur", () =>{
+            const inputValueDescription: string = this.description.value;
+            this.isValidDescription = validateTextInput(inputValueDescription);
+        })
     }
 
     createTask(event: MouseEvent){
         event.preventDefault()
-        console.log("helloo");
     const titleValue = this.title.value;
     const descriptionValue = this.description.value;
     const taskPriorityValue: TaskPriority = this.taskPriority.value as TaskPriority;
