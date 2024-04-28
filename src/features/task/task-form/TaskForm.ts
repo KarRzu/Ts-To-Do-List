@@ -39,6 +39,15 @@ export class TaskForm{
     }
 
     createTask(event: MouseEvent){
+
+        if(!this.isValidTitle || !this.isValidDescription){
+        if(!this.isValidTitle){
+            this.title.style.borderColor = 'red';
+        }
+        if(!this.isValidDescription){
+            this.description.style.borderColor = 'red';
+        } return;
+        } 
         event.preventDefault()
     const titleValue = this.title.value;
     const descriptionValue = this.description.value;
