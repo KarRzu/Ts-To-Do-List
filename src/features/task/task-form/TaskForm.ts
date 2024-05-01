@@ -1,6 +1,5 @@
+import { validateTextInput } from "../../../shared/utils/validation";
 import { TaskState, Task, TaskPriority,TaskStoryPoints,} from "../types";
-import { validateTextInput } from '../validation';
-
 
 export class TaskForm{
     
@@ -29,7 +28,6 @@ export class TaskForm{
         this.title.addEventListener("blur", () =>{
            const inputValueTitle: string = this.title.value;
            this.isValidTitle = validateTextInput(inputValueTitle);
-           console.log(inputValueTitle);
         })
 
         this.description.addEventListener("blur", () =>{
@@ -47,7 +45,7 @@ export class TaskForm{
         if(!this.isValidDescription){
             this.description.style.borderColor = 'red';
         } return;
-        } 
+    }
         event.preventDefault()
     const titleValue = this.title.value;
     const descriptionValue = this.description.value;
@@ -64,9 +62,8 @@ export class TaskForm{
         timestamp: timestamp,
         id: Math.floor(Math.random() * 1000)
     }
-
     this.postTask(newTask);
-    }
+}
 
 
     async postTask(newTask: Task){
