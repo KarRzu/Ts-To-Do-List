@@ -1,12 +1,14 @@
 import { Task } from "../types";
+import { createListItem } from "./TaskItem";
 
 export class TaskList {
+    taskListElement: HTMLDivElement;
 
     tasks: Task[] = [];
 
 
     constructor(){
-    this.getTasks();
+    this.initialiazeTaskList();
     }
 
    async getTasks(){
@@ -19,11 +21,24 @@ export class TaskList {
         return response.json() as Promise<Task[]>;
         })
         this.tasks = [...response];
-        console.log(this.tasks);    
+        this.render();
+        console.log(response);   
     }
     catch(error){
         console.log(error);
     }
 
+    }
+
+    initialiazeTaskList(){
+        this.taskListElement = document.querySelector(".task-list") as HTMLDivElement; 
+        this.getTasks();
+    }
+
+    render(){
+        this.tasks.forEach((element) => {
+            const taskItem = createListItem(element);
+            this.taskListElement.appendChild(taskItem);
+        })
     }
 }
