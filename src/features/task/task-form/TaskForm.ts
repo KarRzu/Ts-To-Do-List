@@ -37,6 +37,7 @@ export class TaskForm{
     }
 
     createTask(event: MouseEvent){
+        event.preventDefault()
 
         if(!this.isValidTitle || !this.isValidDescription){
         if(!this.isValidTitle){
@@ -46,7 +47,6 @@ export class TaskForm{
             this.description.style.borderColor = 'red';
         } return;
     }
-        event.preventDefault()
     const titleValue = this.title.value;
     const descriptionValue = this.description.value;
     const taskPriorityValue: TaskPriority = this.taskPriority.value as TaskPriority;
