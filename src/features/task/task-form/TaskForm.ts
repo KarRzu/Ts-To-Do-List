@@ -1,4 +1,5 @@
-import { TaskState, Task, TaskPriority,TaskStoryPoints} from "../types";
+import { validateTextInput } from "../../../shared/utils/validation";
+import { TaskState, Task, TaskPriority,TaskStoryPoints,} from "../types";
 
 export class TaskForm{
     
@@ -9,6 +10,8 @@ export class TaskForm{
     btnCreate: HTMLButtonElement;
 
     isLoading: boolean = false;
+    isValidTitle: boolean = false;
+    isValidDescription: boolean = false;
 
     constructor(){
        this.initialize();
@@ -22,11 +25,28 @@ export class TaskForm{
         this.taskStoryPoints = document.getElementById("task-story-points") as HTMLSelectElement;
         this.btnCreate = document.getElementById("btn-create") as HTMLButtonElement;
         this.btnCreate.addEventListener("click", (event: MouseEvent) => this.createTask(event));
+        this.title.addEventListener("blur", () =>{
+           const inputValueTitle: string = this.title.value;
+           this.isValidTitle = validateTextInput(inputValueTitle);
+        })
+
+        this.description.addEventListener("blur", () =>{
+            const inputValueDescription: string = this.description.value;
+            this.isValidDescription = validateTextInput(inputValueDescription);
+        })
     }
 
     createTask(event: MouseEvent){
+
+        if(!this.isValidTitle || !this.isValidDescription){
+        if(!this.isValidTitle){
+            this.title.style.borderColor = 'red';
+        }
+        if(!this.isValidDescription){
+            this.description.style.borderColor = 'red';
+        } return;
+    }
         event.preventDefault()
-        console.log("helloo");
     const titleValue = this.title.value;
     const descriptionValue = this.description.value;
     const taskPriorityValue: TaskPriority = this.taskPriority.value as TaskPriority;
@@ -42,9 +62,8 @@ export class TaskForm{
         timestamp: timestamp,
         id: Math.floor(Math.random() * 1000)
     }
-
     this.postTask(newTask);
-    }
+}
 
 
     async postTask(newTask: Task){
