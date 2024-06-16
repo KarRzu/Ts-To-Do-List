@@ -2,12 +2,24 @@
 
 body {
 	font-family: Poppins, sans-serif;
+	background-color: black;
+}
+
+.header-h1 {
+	color: white;
+	padding: 20px;
+}
+
+.fa-trash-can {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .task-list {
 	&__task {
 		border-radius: 15px;
-		border: 1px solid #ced4da;
+		border: 1px solid #b0b3b6;
 		background-color: #f8f9fa;
 		box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 	}
@@ -17,7 +29,7 @@ body {
 		background-color: #e9ecef;
 
 		&::placeholder {
-			color: #495057;
+			color: white;
 		}
 
 		&:read-only {

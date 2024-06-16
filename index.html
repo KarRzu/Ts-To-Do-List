@@ -3,9 +3,15 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Formularz</title>
+		<title>To-Do-List</title>
 		<link
 			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
 			rel="stylesheet"
 		/>
 		<link
@@ -13,13 +19,21 @@
 			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 		/>
 		<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-		<link rel="stylesheet" href="style.css" />
-		<!-- Zakładając, że SCSS został skompilowany do CSS -->
+		<script
+			src="https://kit.fontawesome.com/d9bcbe140c.js"
+			crossorigin="anonymous"
+		></script>
+		<link rel="stylesheet" href="/src/style.css" />
+
+		<link rel="stylesheet" href="nav.css" />
 	</head>
 	<body>
+		<h1 class="header-h1">toDo.</h1>
+
 		<div class="container my-5">
 			<div class="card form-card">
 				<div class="card-body">
+					<h1 class="header-task">Create New Task..</h1>
 					<form>
 						<div class="form-group">
 							<input
@@ -88,6 +102,7 @@
 							class="btn btn-outline-secondary mr-3"
 							type="button"
 							id="sort-by-date"
+							style="display: none"
 						>
 							Sort by: Date
 						</button>
@@ -95,6 +110,7 @@
 							class="btn btn-outline-secondary"
 							type="button"
 							id="sort-by-priority"
+							style="display: none"
 						>
 							Sort by: Priority
 						</button>
@@ -106,12 +122,14 @@
 			<div class="task-list">
 				<!-- <div class="task-list__item card mb-3">
 					<div class="card-body">
+						<div class="skeleton-text">
 						<input
 							type="text"
 							class="form-control task-list__input mb-2"
 							placeholder="Task Title"
 							readonly
 						/>
+						</div>
 						<textarea
 							class="form-control task-list__textarea mb-3"
 							placeholder="Task Description"

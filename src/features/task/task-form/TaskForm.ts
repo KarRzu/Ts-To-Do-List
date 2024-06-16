@@ -1,4 +1,5 @@
 import { validateTextInput } from "../../../shared/utils/validation";
+import { TaskList } from "../task-list/TaskList";
 import { TaskState, Task, TaskPriority,TaskStoryPoints,} from "../types";
 
 export class TaskForm{
@@ -9,11 +10,13 @@ export class TaskForm{
     taskStoryPoints:HTMLSelectElement;
     btnCreate: HTMLButtonElement;
 
+    taskList : TaskList;
     isLoading: boolean = false;
     isValidTitle: boolean = false;
     isValidDescription: boolean = false;
 
-    constructor(){
+    constructor(taskList: TaskList){
+        this.taskList = taskList;
        this.initialize();
      
     }
@@ -68,7 +71,9 @@ export class TaskForm{
 
     async postTask(newTask: Task){
         this.isLoading = true;
-        this.btnCreate.disabled = true;
+        this.btnCreate.disabled = false;
+
+        
         try {
             await fetch("http://localhost:3000/tasks", {
                 method: "POST",
@@ -78,6 +83,7 @@ export class TaskForm{
                 body: JSON.stringify(newTask)
             })
             this.resetForm();
+            this.taskList.getTasks();
         } catch (error) {
             console.log(error)
             

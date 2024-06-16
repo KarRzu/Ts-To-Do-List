@@ -1,0 +1,104 @@
+.container{
+    width: 70%;
+}
+
+.card-body {
+  background-color: #2F2F2F;
+}
+
+
+.form-card{
+  border: none;
+}
+
+button[type="submit"]{
+  background-color: #6b5b95;
+  border: none;
+  width: 130px;
+}
+
+button[type="submit"]:hover{
+  background-color: #b8a9c9;
+  color: #6b5b95;
+}
+
+.btn-primary{
+  background-color: #6b5b95;
+}
+
+.btn-edit, .btn-save, .btn-delete{
+  background-color: #6b5b95;
+  margin: 10px;
+}
+
+.mb-3{
+  border: none;
+}
+
+.text-muted {
+  color: white  !important;
+}
+
+
+.header-task{
+  color: #6b5b95;
+}
+
+label, p{
+  color: #6b5b95;
+}
+
+.btn-primary form-card__button{
+  background-color: #6b5b95;
+}
+
+
+
+nav {
+	width: 100%;
+	height: 56px;
+	background-color: #0018BE;;
+	display: flex;
+	justify-content: end;
+	align-items: center; 
+  position: fixed;
+}
+
+i {
+    color: white;
+    margin-right: 45px;
+    cursor: pointer;
+}
+
+ .sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    height: 100vh;
+    overflow: auto;
+  } 
+  
+
+ .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  } 
+  
+
+   .sidebar a.active {
+    background-color: #0018BE;
+    color: white;
+  } 
+  
+
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  } 
+
+
+
+  
