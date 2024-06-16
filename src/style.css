@@ -1,7 +1,6 @@
 /* stylelint-disable selector-no-vendor-prefix */
-/* stylelint-disable CssSyntaxError */
-/* stylelint-disable rule-empty-line-before */
 /* stylelint-disable selector-class-pattern */
+/* stylelint-disable rule-empty-line-before */
 @import 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap';
 body {
   font-family: Poppins, sans-serif;
@@ -19,18 +18,15 @@ body {
   justify-content: center;
 }
 
-
 .task-list__task {
   border-radius: 15px;
   border: 1px solid #b0b3b6;
   background-color: #f8f9fa;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
-
 .task-list__input, .task-list__textarea {
   background-color: #e9ecef;
 }
-
 .task-list__input::-moz-placeholder, .task-list__textarea::-moz-placeholder {
   color: white;
 }
